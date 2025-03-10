@@ -10,7 +10,6 @@ const Dashboard = () => {
     { id: 1, equipment: 'Plow', period: 'March 5 - March 10', status: 'Completed' },
     { id: 2, equipment: 'Seeder', period: 'February 25 - February 28', status: 'Completed' },
   ];
-hello
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -26,7 +25,6 @@ hello
       {/* Main Content */}
       <main className="flex-1 p-6">
         {/* Welcome Section */}
-        hellooo
         <div className="bg-white p-6 rounded shadow-md mb-6">
           <h1 className="text-2xl font-bold">Welcome back, {userName}!</h1>
           <p className="text-gray-700 mt-2">You have {bookings.length} active bookings.</p>
