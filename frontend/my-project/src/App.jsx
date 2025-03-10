@@ -5,6 +5,8 @@ import Login from './pages/auth/Login';
 import Dashboard from './pages/Dashboard';
 import SearchEquipment from './pages/SearchEquipment';
 import AddEquipment from './pages/AddEquipment';
+import ChatSupportInterface from './pages/ChatSupportInterface';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path="/search-equipment" element={<SearchEquipment />} />
       <Route path="/add-equipment" element={<AddEquipment />} />
+      <Route path="/chat-support" element={<ChatSupportInterface />} />
     </Routes>
   );
 
