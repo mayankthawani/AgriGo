@@ -4,7 +4,7 @@ import {
   faStar, faCheckCircle, faUser, faEnvelope, faPhone, faMapMarkerAlt,
   faPencilAlt, faChartLine, faCalendarAlt, faShoppingCart, faMedal, faLink, faEdit, faLeaf, faAward, faTimes 
 } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+//import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const UserProfile = () => {
   const [showEditModal, setShowEditModal] = useState(false);
