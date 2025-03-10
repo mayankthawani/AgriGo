@@ -3,7 +3,7 @@ import React from 'react'
 const Userprofile = () => {
   return (
     <div>
-      Hello Geetali di
+      hello
     </div>
   )
 }
