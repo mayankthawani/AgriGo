@@ -17,6 +17,8 @@ function App() {
       <Route path="/add-equipment" element={<AddEquipment />} />
     </Routes>
   );
+
+  
 }
 
 export default App;
