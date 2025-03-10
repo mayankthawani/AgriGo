@@ -6,7 +6,7 @@ import Dashboard from './pages/Dashboard';
 import SearchEquipment from './pages/SearchEquipment';
 import AddEquipment from './pages/AddEquipment';
 import ChatSupportInterface from './pages/ChatSupportInterface';
-
+import Payment from './pages/Payment';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
       <Route path="/search-equipment" element={<SearchEquipment />} />
       <Route path="/add-equipment" element={<AddEquipment />} />
       <Route path="/chat-support" element={<ChatSupportInterface />} />
+      <Route path="/payment" element={<Payment/>} />
     </Routes>
   );
 
