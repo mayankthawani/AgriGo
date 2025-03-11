@@ -33,12 +33,12 @@ export default function Landing() {
   <img 
     src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=1989&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
     alt="Tractor"
-    className="absolute top-10 left-10 w-24 h-24 rounded-full shadow-lg animate-pulse"
+    className="absolute top-12 left-10 w-24 h-24 rounded-full shadow-lg animate-pulse"
   />
   <img 
     src="https://media.istockphoto.com/id/1284378353/photo/young-indian-farmer-using-smartphone-in-cotton-field.jpg?s=1024x1024&w=is&k=20&c=Z35ItHTaLhHcvefWesXj72EQ9-vwvTaCS9pcBLP-r38=" 
     alt="Farmer"
-    className="absolute top-40 right-10 w-28 h-28 rounded-full shadow-lg "
+    className="absolute top-50 right-10 w-28 h-28 rounded-full shadow-lg "
   />
   <img 
     src="https://media.istockphoto.com/id/484522704/photo/tractor-tire.jpg?s=1024x1024&w=is&k=20&c=_9s8JJlPMblgGRqczvEQSq1TZwbwDC79dhAVaRndakg=" 
@@ -72,7 +72,7 @@ export default function Landing() {
       to="/signup" 
       className="mt-8 px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-green-900 font-bold text-lg rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105"
     >
-      Get Started Today 🚀
+      Get Started Today 
     </Link>
   </motion.div>
 </div>
@@ -83,7 +83,7 @@ export default function Landing() {
         {/* How It Works Section */}
 <div className="bg-green-800/50 backdrop-blur-md py-16">
   <div className="max-w-6xl mx-auto px-6 text-center">
-    <h3 className="text-4xl font-bold text-yellow-400 mb-10">How AgriGo Works? 🚀</h3>
+    <h3 className="text-4xl font-bold text-yellow-400 mb-10">How AgriGo Works? </h3>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="p-6 bg-green-900 rounded-lg shadow-lg">
         <FaUsers className="text-yellow-400 text-4xl mx-auto mb-4" />
@@ -142,7 +142,7 @@ export default function Landing() {
       {/* Call to Action */}
       <div className="text-center py-20 bg-gradient-to-r from-yellow-400 to-yellow-500 text-green-900">
         <h3 className="text-4xl font-bold">Ready to Join AgriGo?</h3>
-        <p className="text-xl mt-4">Sign up today and revolutionize farming with AI-powered tools! 🚀</p>
+        <p className="text-xl mt-4">Sign up today and revolutionize farming with AI-powered tools! </p>
         <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
           <Link to="/signup" className="inline-block mt-8 px-8 py-4 bg-green-900 text-white font-bold text-lg rounded-full hover:bg-green-800 transition-all duration-300 hover:shadow-xl">
             Sign Up Now
