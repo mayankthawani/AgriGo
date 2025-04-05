@@ -20,17 +20,30 @@ const Payment = () => {
         return;
       }
 
-      await axios.post(
-        "http://localhost:5000/api/rent",
-        { equipmentId, days },
-        { headers: { Authorization: `Bearer ${token}` } }
+      const response = await axios.post(
+        "http://localhost:5000/api/booking/book",
+        {
+          equipmentId: equipmentId,
+          startDate: queryParams.get("startDate"),
+          endDate: queryParams.get("endDate"),
+          requestId: queryParams.get("requestId"),
+          amount: total
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
       );
 
-      alert("Payment successful! Equipment rented.");
-      navigate("/dashboard");
+      if (response.data.success) {
+        alert("Payment successful! Equipment rented successfully.");
+        navigate("/dashboard");
+      }
     } catch (error) {
-      console.error("Payment error:", error.response?.data?.message || error.message);
-      alert("Payment failed. Try again.");
+      console.error("Payment error:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Payment failed. Please try again.");
     }
   };
 

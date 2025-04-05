@@ -11,17 +11,12 @@ import ChatSupportInterface from "./pages/ChatSupportInterface";
 import BookEquipment from "./pages/BookEquipment";
 import EquipmentList from "./components/EquipmentList";
 import Payment from "./pages/Payment";
-import LanguageSwitcher from "./components/LanguageSwitcher"; // ✅ Import Language Switcher
-import "./i18n"; // ✅ Import i18n configuration
+import SendRequest from './pages/SendRequest';
+import FarmerChat from './pages/FarmerChat';
 
 function App() {
   return (
     <div>
-      {/* ✅ Add Language Switcher */}
-      <div className="p-4 bg-gray-100 text-right">
-        <LanguageSwitcher />
-      </div>
-
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<SignUp />} />
@@ -35,6 +30,8 @@ function App() {
         <Route path="/book-equipment" element={<BookEquipment />} />
         <Route path="/equipment-list" element={<EquipmentList />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/send-request/:equipmentId" element={<SendRequest />} />
+        <Route path="/farmer-chat/:requestId" element={<FarmerChat />} />
       </Routes>
     </div>
   );

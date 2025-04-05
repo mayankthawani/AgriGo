@@ -21,12 +21,24 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/signup", formData);
-      alert("Signup Successful!");
-      console.log(response.data);
-      navigate("/login"); // Redirect to Dashboard after successful signup
+      const response = await axios.post(
+        'http://localhost:5000/api/auth/register',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (response.data.success) {
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        navigate('/dashboard');
+      }
     } catch (error) {
-      alert(error.response?.data?.message || "Something went wrong!");
+      console.error('Signup error:', error.response?.data || error.message);
+      setError(error.response?.data?.message || 'Registration failed');
     } finally {
       setLoading(false);
     }

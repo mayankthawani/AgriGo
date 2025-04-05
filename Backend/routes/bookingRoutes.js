@@ -1,32 +1,73 @@
 const express = require("express");
+const router = express.Router();
 const Booking = require("../models/Booking");
 const Equipment = require("../models/Equipment");
+const RentalRequest = require("../models/RentalRequest");
 const User = require("../models/User");
 const authMiddleware = require("../middlewares/authMiddleware");
 
-const router = express.Router();
-
-/** ✅ **Book Equipment** */
 router.post("/book", authMiddleware, async (req, res) => {
   try {
-    const { equipmentId, startDate, endDate } = req.body;
+    const { equipmentId, startDate, endDate, requestId, amount } = req.body;
 
     if (!equipmentId || !startDate || !endDate) {
-      return res.status(400).json({ success: false, message: "All fields are required." });
+      return res.status(400).json({ 
+        success: false, 
+        message: "Missing required booking details" 
+      });
     }
 
+    // Check if equipment exists and is available
+    const equipment = await Equipment.findById(equipmentId);
+    if (!equipment) {
+      return res.status(404).json({ 
+        success: false, 
+        message: "Equipment not found" 
+      });
+    }
+
+    if (!equipment.availability) {
+      return res.status(400).json({ 
+        success: false, 
+        message: "Equipment is not available" 
+      });
+    }
+
+    // Create booking
     const newBooking = new Booking({
-      user: req.user.id, // Get user from JWT
+      user: req.user.id,
       equipment: equipmentId,
-      startDate,
-      endDate,
-      status: "Pending",
+      startDate: new Date(startDate),
+      endDate: new Date(endDate),
+      status: "Confirmed",
     });
 
     await newBooking.save();
-    res.status(201).json({ success: true, message: "Booking confirmed", booking: newBooking });
+
+    // Update equipment availability
+    equipment.availability = false;
+    await equipment.save();
+
+    // If there's a rental request, update its status
+    if (requestId) {
+      await RentalRequest.findByIdAndUpdate(requestId, { 
+        status: "completed" 
+      });
+    }
+
+    res.status(201).json({
+      success: true,
+      message: "Payment successful and booking confirmed",
+      booking: newBooking
+    });
+
   } catch (error) {
-    res.status(500).json({ success: false, message: "Failed to book equipment", error: error.message });
+    console.error("Booking error:", error);
+    res.status(500).json({ 
+      success: false, 
+      message: "Failed to complete rental", 
+      error: error.message 
+    });
   }
 });
 

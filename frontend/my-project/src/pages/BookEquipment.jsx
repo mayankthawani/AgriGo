@@ -171,12 +171,12 @@ const BookEquipment = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => setSelectedEquipment(equip)}
+                    onClick={() => navigate(`/send-request/${equip._id}`)}
                     className="w-full bg-green-600 text-white py-3 px-4 rounded-xl hover:bg-green-700 
                              transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
                   >
                     <FaCalendarAlt />
-                    Book Now
+                    Send Request
                   </motion.button>
                 </div>
               </motion.div>
