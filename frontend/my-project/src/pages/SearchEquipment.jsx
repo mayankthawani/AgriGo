@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { FaSearch, FaTractor, FaMapMarkerAlt, FaRupeeSign, FaUser, FaCalendarAlt } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+import '../i18n';
 
 const SearchEquipment = () => {
+  const { t } = useTranslation();
   const [equipments, setEquipments] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -46,8 +49,8 @@ const SearchEquipment = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h2 className="text-4xl font-bold text-green-800 mb-4">Find Equipment</h2>
-          <p className="text-gray-600">Browse through our collection of farming equipment</p>
+          <h2 className="text-4xl font-bold text-green-800 mb-4">{t('FIND_EQUIPMENT')}</h2>
+          <p className="text-gray-600">{t('BROWSE_EQUIPMENT')}</p>
         </motion.div>
 
         {/* Search Box */}
@@ -55,7 +58,7 @@ const SearchEquipment = () => {
           <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder="Search equipment..."
+            placeholder={t('SEARCH_EQUIPMENT_PLACEHOLDER')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none shadow-lg"
@@ -86,7 +89,7 @@ const SearchEquipment = () => {
                     </div>
                     <div className="flex items-center text-gray-600">
                       <FaUser className="w-5 h-5 mr-2 text-green-500" />
-                      <span>{equip.owner?.name || "Unknown"}</span>
+                      <span>{equip.owner?.name || t('UNKNOWN_OWNER')}</span>
                     </div>
                     <div className="flex items-center text-gray-600">
                       <FaMapMarkerAlt className="w-5 h-5 mr-2 text-green-500" />
@@ -94,7 +97,7 @@ const SearchEquipment = () => {
                     </div>
                     <div className="flex items-center text-gray-600">
                       <FaRupeeSign className="w-5 h-5 mr-2 text-green-500" />
-                      <span className="text-lg font-semibold text-green-600">{equip.pricePerDay}/day</span>
+                      <span className="text-lg font-semibold text-green-600">{equip.pricePerDay}/{t('DAY')}</span>
                     </div>
                   </div>
 
@@ -103,7 +106,7 @@ const SearchEquipment = () => {
                     className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
                   >
                     <FaCalendarAlt />
-                    Rent Now
+                    {t('RENT_NOW')}
                   </button>
                 </div>
               </motion.div>
@@ -111,7 +114,7 @@ const SearchEquipment = () => {
           ) : (
             <div className="col-span-full text-center py-12">
               <FaSearch className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-500 text-lg">No equipment found matching your search.</p>
+              <p className="text-gray-500 text-lg">{t('NO_EQUIPMENT_FOUND')}</p>
             </div>
           )}
         </div>

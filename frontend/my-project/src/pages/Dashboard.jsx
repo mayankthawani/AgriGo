@@ -9,14 +9,18 @@ import {
   FaUser,
   FaCalendarAlt,
   FaTractor,
+  FaGlobe,
 } from "react-icons/fa";
 import { GrMoney } from "react-icons/gr";
 import { BiSupport } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import Chat from "../components/Chat";  // ✅ Import Chat Component
 import RequestChat from '../components/RequestChat';  // Add this import at the top
+import { useTranslation } from 'react-i18next';
+import '../i18n';
 
 const Dashboard = () => {
+  const { t, i18n } = useTranslation();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [userName, setUserName] = useState("User");
   const [bookings, setBookings] = useState([]);
@@ -145,7 +149,7 @@ const Dashboard = () => {
     <section className="mt-8">
       {/* Received Requests */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Received Rental Requests</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('dashboard.requests.received')}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {rentalRequests.received?.map((request) => (
             <motion.div
@@ -154,12 +158,12 @@ const Dashboard = () => {
             >
               <h3 className="text-xl font-bold text-gray-800">{request.equipmentId?.name}</h3>
               <div className="mt-2 space-y-2">
-                <p className="text-gray-600">From: {request.renterId?.name}</p>
-                <p className="text-gray-600">Email: {request.renterId?.email}</p>
-                <p className="text-gray-600">Proposed Price: ₹{request.proposedPrice}/day</p>
+                <p className="text-gray-600">{t('dashboard.requests.from')}: {request.renterId?.name}</p>
+                <p className="text-gray-600">{t('dashboard.requests.email')}: {request.renterId?.email}</p>
+                <p className="text-gray-600">{t('dashboard.requests.price')}: ₹{request.proposedPrice}/day</p>
                 <p className="text-gray-600">Status: {request.status}</p>
                 {request.message && (
-                  <p className="text-gray-600">Message: {request.message}</p>
+                  <p className="text-gray-600">{t('dashboard.requests.message')}: {request.message}</p>
                 )}
               </div>
               
@@ -169,13 +173,13 @@ const Dashboard = () => {
                     onClick={() => handleRequestResponse(request._id, "approved")}
                     className="bg-green-500 text-white px-4 py-2 rounded"
                   >
-                    Accept
+                    {t('dashboard.requests.actions.accept')}
                   </button>
                   <button 
                     onClick={() => handleRequestResponse(request._id, "rejected")}
                     className="bg-red-500 text-white px-4 py-2 rounded"
                   >
-                    Reject
+                    {t('dashboard.requests.actions.reject')}
                   </button>
                 </div>
               )}
@@ -199,7 +203,7 @@ const Dashboard = () => {
 
       {/* Sent Requests */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Sent Rental Requests</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('dashboard.requests.sent')}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {rentalRequests.sent?.map((request) => (
             <motion.div
@@ -208,17 +212,17 @@ const Dashboard = () => {
             >
               <h3 className="text-xl font-bold text-gray-800">{request.equipmentId?.name}</h3>
               <p className="text-gray-600">Owner: {request.ownerId?.name}</p>
-              <p className="text-gray-600">Proposed Price: ₹{request.proposedPrice}/day</p>
+              <p className="text-gray-600">{t('dashboard.requests.price')}: ₹{request.proposedPrice}/day</p>
               <p className="text-gray-600">Status: {request.status}</p>
               {request.message && (
-                <p className="text-gray-600 mt-2">Message: {request.message}</p>
+                <p className="text-gray-600 mt-2">{t('dashboard.requests.message')}: {request.message}</p>
               )}
               {request.status === "approved" && (
                 <button
                   onClick={() => navigate(`/farmer-chat/${request._id}`)}
                   className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
                 >
-                  Chat with Farmer
+                  {t('dashboard.requests.actions.chat')}
                 </button>
               )}
             </motion.div>
@@ -227,6 +231,12 @@ const Dashboard = () => {
       </div>
     </section>
   );
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  };
+  
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-green-50 to-green-100">
@@ -240,14 +250,26 @@ const Dashboard = () => {
         <div className="flex justify-between items-center border-b border-green-600/50 pb-4">
           <div className="flex items-center gap-2">
             <FaTractor className="text-2xl text-yellow-400" />
-            <h2 className="text-xl font-bold">Dashboard</h2>
+            <h2 className="text-xl font-bold">AgriGo</h2>
+          </div>
+          {/* Language Selector */}
+          <div className="flex items-center gap-2">
+            <FaGlobe className="text-yellow-400" />
+            <select 
+              onChange={(e) => changeLanguage(e.target.value)}
+              value={i18n.language}
+              className="bg-transparent text-white outline-none cursor-pointer"
+            >
+              <option value="en" className="text-gray-800">English</option>
+              <option value="hi" className="text-gray-800">हिंदी</option>
+              <option value="mr" className="text-gray-800">मराठी</option>
+            </select>
           </div>
         </div>
         <nav className="mt-8 space-y-2">
           {[
             { to: "/book-equipment", icon: <FaSearch />, label: "Search Equipment" },
             { to: "/add-equipment", icon: <FaPlus />, label: "Add Equipment" },
-           
             { to: "/chatsupport", icon: <BiSupport />, label: "Chat Support" },
             { to: "/user-profile", icon: <CgProfile />, label: "Profile" },
           ].map((item) => (
@@ -258,7 +280,7 @@ const Dashboard = () => {
               aria-label={item.label}
             >
               <span className="text-green-300 group-hover:text-yellow-400">{item.icon}</span>
-              <span className="font-medium">{item.label}</span>
+              <span className="font-medium">{t(item.label)}</span>
             </Link>
           ))}
         </nav>
@@ -277,29 +299,29 @@ const Dashboard = () => {
               <FaUser className="text-3xl text-green-600" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">Welcome, {userName}! 👋</h1>
-              <p className="text-gray-600 mt-1">Active Bookings: {getActiveBookingsCount()}</p>
+              <h1 className="text-3xl font-bold text-gray-800">{t('Welcome')}, {userName}! 👋</h1>
+              <p className="text-gray-600 mt-1">{t('Active Bookings')}: {getActiveBookingsCount()}</p>
             </div>
           </div>
         </motion.div>
 
         {/* Loading or Error State */}
         {loading ? (
-          <p className="text-center text-gray-500 mt-6">Loading...</p>
+          <p className="text-center text-gray-500 mt-6">{t('Loading')}...</p>
         ) : error ? (
           <p className="text-center text-red-500 mt-6">{error}</p>
         ) : (
           <>
             {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <QuickStat icon={<FaCheckCircle />} label="Active Bookings" value={stats.activeBookings} />
+              <QuickStat icon={<FaCheckCircle />} label={t('Active Bookings')} value={stats.activeBookings} />
              
-              <QuickStat icon={<FaTractor />} label="Rental Requests" value={stats.receivedRequests} />
+              <QuickStat icon={<FaTractor />} label={t('Requests')} value={stats.receivedRequests} />
             </div>
 
             {/* Equipment You Have Taken on Rent */}
             <section className="mt-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Rented Equipment</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('Your Rentals')}</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {rentedEquipment.map((rental) => (
                   <motion.div
@@ -308,9 +330,9 @@ const Dashboard = () => {
                   >
                     <div>
                       <h3 className="text-xl font-bold text-gray-800">{rental.equipment?.name}</h3>
-                      <p className="text-gray-600 mt-1">Owner: {rental.equipment?.owner?.name}</p>
-                      <p className="text-gray-600">Rental Period: {new Date(rental.startDate).toLocaleDateString()} - {new Date(rental.endDate).toLocaleDateString()}</p>
-                      <p className="text-gray-600">Status: <span className={`font-semibold ${
+                      <p className="text-gray-600 mt-1">{t('dashboard.rentals.owner')}: {rental.equipment?.owner?.name}</p>
+                      <p className="text-gray-600">{t('dashboard.rentals.rentalPeriod')}: {new Date(rental.startDate).toLocaleDateString()} - {new Date(rental.endDate).toLocaleDateString()}</p>
+                      <p className="text-gray-600">{t('dashboard.rentals.status')}: <span className={`font-semibold ${
                         rental.status === 'Confirmed' ? 'text-green-600' : 
                         rental.status === 'Pending' ? 'text-yellow-600' : 'text-blue-600'
                       }`}>{rental.status}</span></p>
@@ -320,7 +342,7 @@ const Dashboard = () => {
                 {rentedEquipment.length === 0 && (
                   <div className="col-span-2 text-center py-8 bg-white rounded-xl shadow-lg">
                     <FaTractor className="mx-auto text-4xl text-gray-300 mb-2" />
-                    <p className="text-gray-500">No equipment currently rented</p>
+                    <p className="text-gray-500">{t('dashboard.rentals.noEquipment')}</p>
                   </div>
                 )}
               </div>
@@ -331,10 +353,7 @@ const Dashboard = () => {
         )}
 
         {/* ✅ Chat Component Placed at the Bottom */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Chat with your co-farmers</h2>
-          <Chat />  {/* ✅ Correct Placement */}
-        </section>
+       
       </main>
     </div>
   );

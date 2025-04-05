@@ -1,4 +1,9 @@
+import React, { Suspense } from 'react';
 import { Route, Routes } from "react-router-dom";
+import './i18n/i18n';
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n/i18n";
+import './i18n';  // Import i18n configuration
 import Landing from "./pages/Landing";
 import SignUp from "./pages/auth/SignUp";
 import Login from "./pages/auth/Login";
@@ -16,7 +21,7 @@ import FarmerChat from './pages/FarmerChat';
 
 function App() {
   return (
-    <div>
+    <Suspense fallback="Loading...">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<SignUp />} />
@@ -33,7 +38,7 @@ function App() {
         <Route path="/send-request/:equipmentId" element={<SendRequest />} />
         <Route path="/farmer-chat/:requestId" element={<FarmerChat />} />
       </Routes>
-    </div>
+    </Suspense>
   );
 }
 

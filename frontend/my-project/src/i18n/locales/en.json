@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "dashboard": "Dashboard"
+  },
+  "landing": {
+    "welcome": "Welcome to AgriGo",
+    "subtitle": "Connecting Farmers, Sharing Equipment",
+    "getStarted": "Get Started",
+    "whyJoin": "Why Join AgriGo?",
+    "features": {
+      "access": {
+        "title": "Access Farm Equipment",
+        "description": "Rent or list farming equipment easily"
+      },
+      "secure": {
+        "title": "Secure Platform",
+        "description": "Verified users and secure transactions"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Join a network of trusted farmers"
+      }
+    }
+  },
+  "auth": {
+    "createAccount": "Create Account",
+    "joinCommunity": "Join the AgriGo community today",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "equipment": {
+    "search": "Search Equipment",
+    "add": "Add Equipment",
+    "book": "Book Equipment",
+    "type": "Type",
+    "location": "Location",
+    "price": "Price per Day",
+    "owner": "Owner",
+    "sendRequest": "Send Request",
+    "details": "Equipment Details",
+    "description": "Description",
+    "availability": "Availability"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "activeBookings": "Active Bookings",
+    "rentedEquipment": "Rented Equipment",
+    "totalRentals": "Total Rentals",
+    "rentalRequests": "Rental Requests",
+    "menu": {
+      "searchEquipment": "Search Equipment",
+      "addEquipment": "Add Equipment",
+      "aiPricing": "AI Pricing",
+      "chatSupport": "Chat Support",
+      "profile": "Profile"
+    },
+    "quickStats": {
+      "active": "Active Bookings",
+      "total": "Total Rentals",
+      "requests": "Rental Requests"
+    },
+    "rentals": {
+      "title": "Rented Equipment",
+      "owner": "Owner",
+      "rentalPeriod": "Rental Period",
+      "status": "Status",
+      "noEquipment": "No equipment currently rented"
+    },
+    "requests": {
+      "received": "Received Rental Requests",
+      "sent": "Sent Rental Requests",
+      "from": "From",
+      "email": "Email",
+      "price": "Proposed Price",
+      "message": "Message",
+      "actions": {
+        "accept": "Accept",
+        "reject": "Reject",
+        "chat": "Chat with Farmer"
+      }
+    }
+  }
+}

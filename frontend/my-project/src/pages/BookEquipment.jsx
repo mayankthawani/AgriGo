@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import debounce from "lodash.debounce";
 import { motion } from "framer-motion";
 import { FaSearch, FaTractor, FaMapMarkerAlt, FaRupeeSign, FaUser, FaCalendarAlt, FaInfoCircle } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+import '../utils/i18n';
 
 const BookEquipment = () => {
+  const { t } = useTranslation();
   const [equipmentList, setEquipmentList] = useState([]);  // All Equipment
   const [filteredEquipment, setFilteredEquipment] = useState([]); // Filtered Equipment
   const [selectedEquipment, setSelectedEquipment] = useState(null);
@@ -111,8 +113,8 @@ const BookEquipment = () => {
           <div className="inline-block p-4 bg-green-100 rounded-full mb-4">
             <FaTractor className="text-4xl text-green-600" />
           </div>
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Book Farm Equipment</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Find and rent the perfect equipment for your farming needs</p>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">{t('BOOK_FARM_EQUIPMENT')}</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">{t('FIND_PERFECT_EQUIPMENT')}</p>
         </motion.div>
 
         {/* Search Section */}
@@ -122,7 +124,7 @@ const BookEquipment = () => {
           </div>
           <input
             type="text"
-            placeholder="Search Equipment Type (e.g., Tractor, Harvester)"
+            placeholder={t('SEARCH_PLACEHOLDER')}
             value={searchType}
             onChange={(e) => setSearchType(e.target.value)}
             className="block w-full pl-10 pr-3 py-4 border-2 border-green-200 rounded-xl 
@@ -157,12 +159,12 @@ const BookEquipment = () => {
                 {/* Equipment Details */}
                 <div className="p-6 space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <DetailItem icon={<FaTractor />} label="Type" value={equip.type} />
-                    <DetailItem icon={<FaUser />} label="Owner" value={equip.owner?.name || "Unknown"} />
-                    <DetailItem icon={<FaMapMarkerAlt />} label="Location" value={equip.location} />
+                    <DetailItem icon={<FaTractor />} label={t('TYPE')} value={equip.type} />
+                    <DetailItem icon={<FaUser />} label={t('OWNER')} value={equip.owner?.name || t('UNKNOWN')} />
+                    <DetailItem icon={<FaMapMarkerAlt />} label={t('LOCATION')} value={equip.location} />
                     <DetailItem 
                       icon={<FaRupeeSign />} 
-                      label="Price/Day" 
+                      label={t('PRICE_PER_DAY')} 
                       value={`₹${equip.pricePerDay}`}
                       highlight={true}
                     />
@@ -176,7 +178,7 @@ const BookEquipment = () => {
                              transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
                   >
                     <FaCalendarAlt />
-                    Send Request
+                    {t('SEND_REQUEST')}
                   </motion.button>
                 </div>
               </motion.div>
@@ -184,8 +186,8 @@ const BookEquipment = () => {
           ) : (
             <div className="col-span-full flex flex-col items-center justify-center py-12 text-gray-500">
               <FaSearch className="w-16 h-16 mb-4 text-gray-300" />
-              <p className="text-xl">No equipment found matching your search.</p>
-              <p className="mt-2">Try adjusting your search terms.</p>
+              <p className="text-xl">{t('NO_EQUIPMENT_FOUND')}</p>
+              <p className="mt-2">{t('ADJUST_SEARCH')}</p>
             </div>
           )}
         </motion.div>
@@ -206,20 +208,20 @@ const BookEquipment = () => {
                 <div className="p-3 bg-green-100 rounded-full">
                   <FaTractor className="text-2xl text-green-600" />
                 </div>
-                <h2 className="text-2xl font-bold">Book Equipment</h2>
+                <h2 className="text-2xl font-bold">{t('BOOK_EQUIPMENT')}</h2>
               </div>
 
               <div className="space-y-4">
-                <DetailItem icon={<FaTractor />} label="Equipment" value={selectedEquipment.name} />
+                <DetailItem icon={<FaTractor />} label={t('TYPE')} value={selectedEquipment.name} />
                 <DetailItem 
                   icon={<FaRupeeSign />} 
-                  label="Price per Day" 
+                  label={t('PRICE_PER_DAY')} 
                   value={`₹${selectedEquipment.pricePerDay}`} 
                   highlight={true}
                 />
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700">Start Date</label>
+                  <label className="block text-sm font-medium text-gray-700">{t('START_DATE')}</label>
                   <input
                     type="date"
                     name="startDate"
@@ -230,7 +232,7 @@ const BookEquipment = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700">End Date</label>
+                  <label className="block text-sm font-medium text-gray-700">{t('END_DATE')}</label>
                   <input
                     type="date"
                     name="endDate"
@@ -243,12 +245,12 @@ const BookEquipment = () => {
                 <div className="bg-green-50 p-4 rounded-xl">
                   <DetailItem 
                     icon={<FaCalendarAlt />} 
-                    label="Total Days" 
+                    label={t('TOTAL_DAYS')} 
                     value={bookingDetails.totalDays}
                   />
                   <DetailItem 
                     icon={<FaRupeeSign />} 
-                    label="Total Price" 
+                    label={t('TOTAL_PRICE')} 
                     value={`₹${bookingDetails.totalPrice}`}
                     highlight={true}
                   />
@@ -259,7 +261,7 @@ const BookEquipment = () => {
                     onClick={() => setSelectedEquipment(null)}
                     className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50"
                   >
-                    Cancel
+                    {t('CANCEL')}
                   </button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -267,7 +269,7 @@ const BookEquipment = () => {
                     onClick={handleBookingSubmit}
                     className="flex-1 px-4 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700"
                   >
-                    Confirm Booking
+                    {t('CONFIRM_BOOKING')}
                   </motion.button>
                 </div>
               </div>

@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "login": "लॉग इन",
+    "signup": "साइन अप",
+    "dashboard": "डैशबोर्ड"
+  },
+  "landing": {
+    "welcome": "एग्रीगो में आपका स्वागत है",
+    "subtitle": "किसानों को जोड़ना, उपकरण साझा करना",
+    "getStarted": "शुरू करें",
+    "whyJoin": "एग्रीगो में क्यों शामिल हों?",
+    "features": {
+      "access": {
+        "title": "कृषि उपकरण प्राप्त करें",
+        "description": "आसानी से कृषि उपकरण किराए पर लें या सूचीबद्ध करें"
+      },
+      "secure": {
+        "title": "सुरक्षित प्लेटफॉर्म",
+        "description": "सत्यापित उपयोगकर्ता और सुरक्षित लेनदेन"
+      },
+      "community": {
+        "title": "समुदाय",
+        "description": "विश्वसनीय किसानों के नेटवर्क में शामिल हों"
+      }
+    }
+  },
+  "auth": {
+    "createAccount": "खाता बनाएं",
+    "joinCommunity": "आज ही एग्रीगो समुदाय में शामिल हों",
+    "fullName": "पूरा नाम",
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "signIn": "साइन इन करें"
+  },
+  "equipment": {
+    "search": "उपकरण खोजें",
+    "add": "उपकरण जोड़ें",
+    "book": "उपकरण बुक करें",
+    "type": "प्रकार",
+    "location": "स्थान",
+    "price": "प्रति दिन कीमत",
+    "owner": "मालिक",
+    "sendRequest": "अनुरोध भेजें",
+    "details": "उपकरण विवरण",
+    "description": "विवरण",
+    "availability": "उपलब्धता"
+  },
+  "dashboard": {
+    "welcome": "स्वागत है",
+    "activeBookings": "सक्रिय बुकिंग",
+    "rentedEquipment": "किराए के उपकरण",
+    "totalRentals": "कुल किराए",
+    "rentalRequests": "किराये की अनुरोध",
+    "menu": {
+      "searchEquipment": "उपकरण खोजें",
+      "addEquipment": "उपकरण जोड़ें",
+      "aiPricing": "एआई मूल्य निर्धारण",
+      "chatSupport": "चैट सहायता",
+      "profile": "प्रोफाइल"
+    },
+    "quickStats": {
+      "active": "सक्रिय बुकिंग",
+      "total": "कुल किराए",
+      "requests": "किराये की अनुरोध"
+    },
+    "rentals": {
+      "title": "किराए के उपकरण",
+      "owner": "मालिक",
+      "rentalPeriod": "किराये की अवधि",
+      "status": "स्थिति",
+      "noEquipment": "वर्तमान में कोई उपकरण किराए पर नहीं है"
+    },
+    "requests": {
+      "received": "प्राप्त किराये की अनुरोध",
+      "sent": "भेजी गई किराये की अनुरोध",
+      "from": "से",
+      "email": "ईमेल",
+      "price": "प्रस्तावित मूल्य",
+      "message": "संदेश",
+      "actions": {
+        "accept": "स्वीकार करें",
+        "reject": "अस्वीकार करें",
+        "chat": "किसान से चैट करें"
+      }
+    }
+  }
+}
