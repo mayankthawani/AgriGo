@@ -1,23 +1,48 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaLeaf, FaTractor, FaMapMarkedAlt, FaStar, FaCheckCircle, FaUsers, FaQuoteLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { FaLeaf, FaTractor, FaMapMarkedAlt, FaUsers, FaGlobe, FaQuoteLeft, FaCheckCircle } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+import '../i18n/i18n';
 
+const Landing = () => {
+  const { t, i18n } = useTranslation();
 
-export default function Landing() {
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-900 to-green-800 text-white flex flex-col">
       
+      {/* Language Selector */}
+      <div className="fixed top-4 right-4 z-50">
+        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-lg p-2">
+          <FaGlobe className="text-yellow-400" />
+          <select 
+            onChange={(e) => changeLanguage(e.target.value)}
+            value={i18n.language}
+            className="bg-transparent text-white outline-none cursor-pointer"
+          >
+            <option value="en" className="text-gray-800">English</option>
+            <option value="hi" className="text-gray-800">हिंदी</option>
+            <option value="mr" className="text-gray-800">मराठी</option>
+          </select>
+        </div>
+      </div>
+
       {/* Navbar */}
-      <nav className="fixed w-full z-50 backdrop-blur-md bg-green-800/90 flex justify-between items-center px-8 py-4 shadow-lg">
+      <nav className="fixed w-full z-40 backdrop-blur-md bg-green-800/90 flex justify-between items-center px-8 py-4 shadow-lg">
         <h1 className="text-3xl font-serif text-yellow-400 hover:scale-105 transition-transform">
           🌱 AgriGo
         </h1>
         <div className="space-x-4">
           <Link to="/login" className="px-6 py-2 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300">
-            Login
+            {t('login')}
           </Link>
           <Link to="/signup" className="px-6 py-2 bg-yellow-400 text-green-900 font-semibold rounded-full hover:bg-yellow-300 transition-all duration-300 hover:shadow-lg">
-            Sign Up
+            {t('signup')}
           </Link>
         </div>
       </nav>
@@ -59,20 +84,18 @@ export default function Landing() {
       transition={{ duration: 0.8 }}
       className="text-5xl md:text-7xl font-serif leading-tight drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-yellow-400"
     >
-      Smart Farming Starts Here: Equipment at Your Fingertips! 🚜
+      {t('welcome')}
     </motion.h2>
 
     <p className="mt-6 text-xl text-gray-100 max-w-2xl">
-      Rent, Buy, and Sell <span className="text-yellow-400 font-semibold">Farm Equipment</span> with 
-      AI-powered <span className="text-yellow-400 font-semibold">Price Predictions</span> & 
-      <span className="text-yellow-400 font-semibold"> Trusted Sellers</span>.
+      {t('subtitle')}
     </p>
     
     <Link 
       to="/signup" 
       className="mt-8 px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-green-900 font-bold text-lg rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105"
     >
-      Get Started Today 
+      {t('getStarted')}
     </Link>
   </motion.div>
 </div>
@@ -83,24 +106,24 @@ export default function Landing() {
         {/* How It Works Section */}
 <div className="bg-green-800/50 backdrop-blur-md py-16">
   <div className="max-w-6xl mx-auto px-6 text-center">
-    <h3 className="text-4xl font-bold text-yellow-400 mb-10">How AgriGo Works? </h3>
+    <h3 className="text-4xl font-bold text-yellow-400 mb-10">{t('howItWorks.title')}</h3>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="p-6 bg-green-900 rounded-lg shadow-lg">
         <FaUsers className="text-yellow-400 text-4xl mx-auto mb-4" />
-        <h4 className="text-2xl font-semibold">1. Sign Up</h4>
-        <p className="text-gray-300 mt-2">Create a free account and get started.</p>
+        <h4 className="text-2xl font-semibold">{t('howItWorks.step1.title')}</h4>
+        <p className="text-gray-300 mt-2">{t('howItWorks.step1.description')}</p>
       </motion.div>
 
       <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="p-6 bg-green-900 rounded-lg shadow-lg">
         <FaTractor className="text-yellow-400 text-4xl mx-auto mb-4" />
-        <h4 className="text-2xl font-semibold">2. List or Rent Equipment</h4>
-        <p className="text-gray-300 mt-2">Rent farm equipment or list your own for sale.</p>
+        <h4 className="text-2xl font-semibold">{t('howItWorks.step2.title')}</h4>
+        <p className="text-gray-300 mt-2">{t('howItWorks.step2.description')}</p>
       </motion.div>
 
       <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="p-6 bg-green-900 rounded-lg shadow-lg">
         <FaCheckCircle className="text-yellow-400 text-4xl mx-auto mb-4" />
-        <h4 className="text-2xl font-semibold">3. Secure Payment</h4>
-        <p className="text-gray-300 mt-2">Pay securely and get instant confirmation.</p>
+        <h4 className="text-2xl font-semibold">{t('howItWorks.step3.title')}</h4>
+        <p className="text-gray-300 mt-2">{t('howItWorks.step3.description')}</p>
       </motion.div>
     </div>
   </div>
@@ -111,16 +134,16 @@ export default function Landing() {
       {/* Features Section */}
       <div className="bg-gradient-to-b from-green-800 to-green-700 py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h3 className="text-4xl font-bold text-center mb-16 text-yellow-400">Our Features</h3>
+          <h3 className="text-4xl font-bold text-center mb-16 text-yellow-400">{t('whyJoin')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-              <FeatureCard icon={<FaLeaf size={40} />} title="AI-Powered Pricing" description="Get fair market prices for farm equipment using AI." />
+              <FeatureCard icon={<FaLeaf size={40} />} title={t('features.access.title')} description={t('features.access.description')} />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-              <FeatureCard icon={<FaUsers size={40} />} title="Trusted Sellers" description="Verified user ratings & trust scores for secure transactions." />
+              <FeatureCard icon={<FaUsers size={40} />} title={t('features.secure.title')} description={t('features.secure.description')} />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-              <FeatureCard icon={<FaMapMarkedAlt size={40} />} title="Find Nearby Equipment" description="Easily locate farm machinery available near you." />
+              <FeatureCard icon={<FaMapMarkedAlt size={40} />} title={t('features.community.title')} description={t('features.community.description')} />
             </motion.div>
           </div>
         </div>
@@ -161,7 +184,7 @@ export default function Landing() {
       </footer>
     </div>
   );
-}
+};
 
 const StatCard = ({ number, label }) => (
   <div className="text-center p-4">
@@ -190,3 +213,5 @@ const TestimonialCard = ({ name, feedback }) => (
     </div>
   </div>
 );
+
+export default Landing;

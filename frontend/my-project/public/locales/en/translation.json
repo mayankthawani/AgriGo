@@ -1,0 +1,33 @@
+{
+  "dashboard": {
+    "welcome": "Welcome to AgriGo",
+    "myEquipment": "My Equipment",
+    "rentals": "My Rentals",
+    "requests": "Rental Requests",
+    "stats": "Statistics"
+  },
+  "BOOK_FARM_EQUIPMENT": "Book Farm Equipment",
+  "FIND_PERFECT_EQUIPMENT": "Find the perfect equipment for your farming needs",
+  "SEARCH_PLACEHOLDER": "Search equipment by type...",
+  "TYPE": "Type",
+  "OWNER": "Owner",
+  "LOCATION": "Location",
+  "PRICE_PER_DAY": "Price per Day",
+  "UNKNOWN": "Unknown",
+  "SEND_REQUEST": "Send Request",
+  "NO_EQUIPMENT_FOUND": "No equipment found",
+  "ADJUST_SEARCH": "Try adjusting your search criteria",
+  "BOOK_EQUIPMENT": "Book Equipment",
+  "START_DATE": "Start Date",
+  "END_DATE": "End Date",
+  "TOTAL_DAYS": "Total Days",
+  "TOTAL_PRICE": "Total Price",
+  "CANCEL": "Cancel",
+  "CONFIRM_BOOKING": "Confirm Booking",
+  "FIND_EQUIPMENT": "Find Equipment",
+  "BROWSE_EQUIPMENT": "Browse available farming equipment",
+  "SEARCH_EQUIPMENT_PLACEHOLDER": "Search by equipment name...",
+  "UNKNOWN_OWNER": "Unknown Owner",
+  "DAY": "day",
+  "RENT_NOW": "Rent Now"
+}

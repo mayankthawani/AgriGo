@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "login": "लॉगिन करा",
+    "signup": "साइन अप करा",
+    "dashboard": "डॅशबोर्ड"
+  },
+  "landing": {
+    "welcome": "एग्रीगो मध्ये आपले स्वागत आहे",
+    "subtitle": "शेतकऱ्यांना जोडणे, उपकरणे शेअर करणे",
+    "getStarted": "सुरू करा",
+    "whyJoin": "एग्रीगो मध्ये का सामील व्हावे?",
+    "features": {
+      "access": {
+        "title": "शेती उपकरणे मिळवा",
+        "description": "सहज शेती उपकरणे भाड्याने घ्या किंवा सूचीबद्ध करा"
+      },
+      "secure": {
+        "title": "सुरक्षित प्लॅटफॉर्म",
+        "description": "सत्यापित वापरकर्ते आणि सुरक्षित व्यवहार"
+      },
+      "community": {
+        "title": "समुदाय",
+        "description": "विश्वसनीय शेतकऱ्यांच्या नेटवर्कमध्ये सामील व्हा"
+      }
+    }
+  },
+  "auth": {
+    "createAccount": "खाते तयार करा",
+    "joinCommunity": "आज एग्रीगो समुदायात सामील व्हा",
+    "fullName": "पूर्ण नाव",
+    "email": "ईमेल पत्ता",
+    "password": "पासवर्ड",
+    "alreadyHaveAccount": "आधीपासून खाते आहे?",
+    "signIn": "साइन इन करा"
+  },
+  "equipment": {
+    "search": "उपकरणे शोधा",
+    "add": "उपकरण जोडा",
+    "book": "उपकरण बुक करा",
+    "type": "प्रकार",
+    "location": "स्थान",
+    "price": "प्रति दिवस किंमत",
+    "owner": "मालक",
+    "sendRequest": "विनंती पाठवा",
+    "details": "उपकरण तपशील",
+    "description": "वर्णन",
+    "availability": "उपलब्धता"
+  },
+  "dashboard": {
+    "welcome": "स्वागत आहे",
+    "activeBookings": "सक्रिय बुकिंग",
+    "rentedEquipment": "भाड्याची उपकरणे",
+    "totalRentals": "एकूण भाडे",
+    "rentalRequests": "भाड्याच्या विनंत्या",
+    "menu": {
+      "searchEquipment": "उपकरणे शोधा",
+      "addEquipment": "उपकरण जोडा",
+      "aiPricing": "एआई किंमत",
+      "chatSupport": "चॅट सपोर्ट",
+      "profile": "प्रोफाइल"
+    },
+    "quickStats": {
+      "active": "सक्रिय बुकिंग",
+      "total": "एकूण भाडे",
+      "requests": "भाड्याच्या विनंत्या"
+    },
+    "rentals": {
+      "title": "भाड्याची उपकरणे",
+      "owner": "मालक",
+      "rentalPeriod": "भाड्याचा कालावधी",
+      "status": "स्थिती",
+      "noEquipment": "सध्या कोणतीही उपकरणे भाड्याने नाहीत"
+    },
+    "requests": {
+      "received": "प्राप्त झालेल्या भाड्याच्या विनंत्या",
+      "sent": "पाठवलेल्या भाड्याच्या विनंत्या",
+      "from": "कडून",
+      "email": "ईमेल",
+      "price": "प्रस्तावित किंमत",
+      "message": "संदेश",
+      "actions": {
+        "accept": "स्वीकारा",
+        "reject": "नाकारा",
+        "chat": "शेतकऱ्याशी चॅट करा"
+      }
+    }
+  }
+}

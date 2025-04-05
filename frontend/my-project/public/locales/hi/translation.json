@@ -1,0 +1,33 @@
+{
+  "dashboard": {
+    "welcome": "AgriGo में आपका स्वागत है",
+    "myEquipment": "मेरा उपकरण",
+    "rentals": "मेरे किराए",
+    "requests": "किराये की अनुरोध",
+    "stats": "आंकड़े"
+  },
+  "BOOK_FARM_EQUIPMENT": "कृषि उपकरण बुक करें",
+  "FIND_PERFECT_EQUIPMENT": "अपनी खेती की जरूरतों के लिए सही उपकरण खोजें",
+  "SEARCH_PLACEHOLDER": "प्रकार द्वारा उपकरण खोजें...",
+  "TYPE": "प्रकार",
+  "OWNER": "मालिक",
+  "LOCATION": "स्थान",
+  "PRICE_PER_DAY": "प्रति दिन मूल्य",
+  "UNKNOWN": "अज्ञात",
+  "SEND_REQUEST": "अनुरोध भेजें",
+  "NO_EQUIPMENT_FOUND": "कोई उपकरण नहीं मिला",
+  "ADJUST_SEARCH": "अपनी खोज मानदंडों को समायोजित करने का प्रयास करें",
+  "BOOK_EQUIPMENT": "उपकरण बुक करें",
+  "START_DATE": "आरंभ तिथि",
+  "END_DATE": "अंतिम तिथि",
+  "TOTAL_DAYS": "कुल दिन",
+  "TOTAL_PRICE": "कुल मूल्य",
+  "CANCEL": "रद्द करें",
+  "CONFIRM_BOOKING": "बुकिंग की पुष्टि करें",
+  "FIND_EQUIPMENT": "उपकरण खोजें",
+  "BROWSE_EQUIPMENT": "उपलब्ध कृषि उपकरण ब्राउज़ करें",
+  "SEARCH_EQUIPMENT_PLACEHOLDER": "उपकरण के नाम से खोजें...",
+  "UNKNOWN_OWNER": "अज्ञात मालिक",
+  "DAY": "दिन",
+  "RENT_NOW": "किराए पर लें"
+}

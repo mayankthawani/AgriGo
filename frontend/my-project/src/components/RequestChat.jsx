@@ -57,13 +57,13 @@ const RequestChat = ({ requestId, otherUserName }) => {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           className="flex-1 p-2 border rounded"
-          placeholder="Type your message..."
+          placeholder="Type your message here..."
         />
         <button 
           type="submit"
           className="bg-green-500 text-white px-4 py-2 rounded"
         >
-          Send
+          Send Message
         </button>
       </form>
     </div>
