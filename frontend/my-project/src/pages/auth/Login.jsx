@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaLock, FaArrowRight, FaTractor } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaArrowRight, FaTractor, FaGlobe } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
 
 const Login = () => {
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -43,8 +46,27 @@ const Login = () => {
     }
   };
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      {/* Language Selector */}
+      <div className="fixed top-4 right-4 flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-md">
+        <FaGlobe className="text-green-600" />
+        <select 
+          onChange={(e) => changeLanguage(e.target.value)}
+          value={i18n.language}
+          className="bg-transparent outline-none cursor-pointer text-gray-700"
+        >
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="mr">मराठी</option>
+        </select>
+      </div>
+
       <div className="max-w-md w-full space-y-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -53,9 +75,9 @@ const Login = () => {
           className="text-center"
         >
           <FaTractor className="mx-auto h-16 w-16 text-green-600" />
-          <h2 className="mt-6 text-4xl font-extrabold text-gray-900">Welcome Back!</h2>
+          <h2 className="mt-6 text-4xl font-extrabold text-gray-900">{t('LOGIN.WELCOME')}</h2>
           <p className="mt-2 text-sm text-gray-600">
-            Continue your farming journey with AgriGo
+            {t('LOGIN.SUBTITLE')}
           </p>
         </motion.div>
 
@@ -67,7 +89,7 @@ const Login = () => {
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Email Address</label>
+              <label className="block text-sm font-medium text-gray-700">{t('LOGIN.EMAIL')}</label>
               <div className="mt-1 relative">
                 <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
@@ -76,14 +98,14 @@ const Login = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="appearance-none block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your email"
+                  placeholder={t('LOGIN.EMAIL_PLACEHOLDER')}
                   required
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
+              <label className="block text-sm font-medium text-gray-700">{t('LOGIN.PASSWORD')}</label>
               <div className="mt-1 relative">
                 <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
@@ -92,7 +114,7 @@ const Login = () => {
                   value={formData.password}
                   onChange={handleChange}
                   className="appearance-none block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your password"
+                  placeholder={t('LOGIN.PASSWORD_PLACEHOLDER')}
                   required
                 />
               </div>
@@ -104,10 +126,10 @@ const Login = () => {
                   type="checkbox"
                   className="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
                 />
-                <label className="ml-2 block text-sm text-gray-700">Remember me</label>
+                <label className="ml-2 block text-sm text-gray-700">{t('LOGIN.REMEMBER_ME')}</label>
               </div>
               <a href="#" className="text-sm font-medium text-green-600 hover:text-green-500">
-                Forgot password?
+                {t('LOGIN.FORGOT_PASSWORD')}
               </a>
             </div>
 
@@ -127,7 +149,7 @@ const Login = () => {
                   <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                     <FaArrowRight className="h-5 w-5 text-green-100 group-hover:text-green-200" />
                   </span>
-                  Sign in
+                  {t('LOGIN.SIGN_IN')}
                 </>
               )}
             </motion.button>
@@ -139,18 +161,16 @@ const Login = () => {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                <span className="px-2 bg-white text-gray-500">{t('LOGIN.OR_CONTINUE')}</span>
               </div>
             </div>
-
-            
           </div>
         </motion.div>
 
         <p className="mt-8 text-center text-sm text-gray-600">
-          Not registered yet?{" "}
+          {t('LOGIN.NOT_REGISTERED')}{" "}
           <a href="/signup" className="font-medium text-green-600 hover:text-green-500">
-            Create an Account
+            {t('LOGIN.CREATE_ACCOUNT')}
           </a>
         </p>
       </div>

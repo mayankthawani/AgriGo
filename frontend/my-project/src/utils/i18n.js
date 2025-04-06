@@ -61,6 +61,22 @@ export const resources = {
           "REQUEST_REJECTED": "Request rejected",
           "PRICE_PER_DAY": "/day"
         }
+      },
+      "LOGIN": {
+        "WELCOME": "Welcome Back!",
+        "SUBTITLE": "Continue your farming journey with AgriGo",
+        "EMAIL": "Email Address",
+        "EMAIL_PLACEHOLDER": "Enter your email",
+        "PASSWORD": "Password",
+        "PASSWORD_PLACEHOLDER": "Enter your password",
+        "REMEMBER_ME": "Remember me",
+        "FORGOT_PASSWORD": "Forgot password?",
+        "SIGN_IN": "Sign in",
+        "OR_CONTINUE": "Or continue with",
+        "NOT_REGISTERED": "Not registered yet?",
+        "CREATE_ACCOUNT": "Create an Account",
+        "LOGIN_SUCCESS": "Login Successful!",
+        "ERROR": "Something went wrong!"
       }
     }
   },
@@ -123,6 +139,22 @@ export const resources = {
           "REQUEST_REJECTED": "अनुरोध अस्वीकृत",
           "PRICE_PER_DAY": "/दिन"
         }
+      },
+      "LOGIN": {
+        "WELCOME": "वापस स्वागत है!",
+        "SUBTITLE": "AgriGo के साथ अपनी कृषि यात्रा जारी रखें",
+        "EMAIL": "ईमेल पता",
+        "EMAIL_PLACEHOLDER": "अपना ईमेल दर्ज करें",
+        "PASSWORD": "पासवर्ड",
+        "PASSWORD_PLACEHOLDER": "अपना पासवर्ड दर्ज करें",
+        "REMEMBER_ME": "मुझे याद रखें",
+        "FORGOT_PASSWORD": "पासवर्ड भूल गए?",
+        "SIGN_IN": "साइन इन करें",
+        "OR_CONTINUE": "या जारी रखें",
+        "NOT_REGISTERED": "अभी तक पंजीकृत नहीं हैं?",
+        "CREATE_ACCOUNT": "खाता बनाएं",
+        "LOGIN_SUCCESS": "लॉगिन सफल!",
+        "ERROR": "कुछ गलत हो गया!"
       }
     }
   },
@@ -185,6 +217,22 @@ export const resources = {
           "REQUEST_REJECTED": "विनंती नाकारली",
           "PRICE_PER_DAY": "/दिवस"
         }
+      },
+      "LOGIN": {
+        "WELCOME": "पुन्हा स्वागत आहे!",
+        "SUBTITLE": "AgriGo सोबत तुमचा शेती प्रवास सुरू ठेवा",
+        "EMAIL": "ईमेल पत्ता",
+        "EMAIL_PLACEHOLDER": "तुमचा ईमेल टाका",
+        "PASSWORD": "पासवर्ड",
+        "PASSWORD_PLACEHOLDER": "तुमचा पासवर्ड टाका",
+        "REMEMBER_ME": "माझी माहिती लक्षात ठेवा",
+        "FORGOT_PASSWORD": "पासवर्ड विसरलात?",
+        "SIGN_IN": "साइन इन करा",
+        "OR_CONTINUE": "किंवा सुरू ठेवा",
+        "NOT_REGISTERED": "अजून नोंदणी केली नाही?",
+        "CREATE_ACCOUNT": "खाते तयार करा",
+        "LOGIN_SUCCESS": "लॉगिन यशस्वी!",
+        "ERROR": "काहीतरी चूक झाली!"
       }
     }
   }
