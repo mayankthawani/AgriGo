@@ -215,7 +215,7 @@ const Dashboard = () => {
     <section className="mt-8">
       {/* Received Requests */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('dashboard.requests.received')}</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('DASHBOARD.REQUESTS.RECEIVED')}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {rentalRequests.received?.map((request) => (
             <motion.div
@@ -224,12 +224,12 @@ const Dashboard = () => {
             >
               <h3 className="text-xl font-bold text-gray-800">{request.equipmentId?.name}</h3>
               <div className="mt-2 space-y-2">
-                <p className="text-gray-600">{t('dashboard.requests.from')}: {request.renterId?.name}</p>
-                <p className="text-gray-600">{t('dashboard.requests.email')}: {request.renterId?.email}</p>
-                <p className="text-gray-600">{t('dashboard.requests.price')}: ₹{request.proposedPrice}/day</p>
-                <p className="text-gray-600">Status: {request.status}</p>
+                <p className="text-gray-600">{t('DASHBOARD.REQUESTS.FROM')}: {request.renterId?.name}</p>
+                <p className="text-gray-600">{t('DASHBOARD.REQUESTS.EMAIL')}: {request.renterId?.email}</p>
+                <p className="text-gray-600">{t('DASHBOARD.REQUESTS.PRICE')}: ₹{request.proposedPrice}{t('DASHBOARD.REQUESTS.PRICE_PER_DAY')}</p>
+                <p className="text-gray-600">{t('DASHBOARD.REQUESTS.STATUS')}: {request.status}</p>
                 {request.message && (
-                  <p className="text-gray-600">{t('dashboard.requests.message')}: {request.message}</p>
+                  <p className="text-gray-600">{t('DASHBOARD.REQUESTS.MESSAGE')}: {request.message}</p>
                 )}
               </div>
               
@@ -239,13 +239,13 @@ const Dashboard = () => {
                     onClick={() => handleRequestResponse(request._id, "approved")}
                     className="bg-green-500 text-white px-4 py-2 rounded"
                   >
-                    {t('dashboard.requests.actions.accept')}
+                    {t('DASHBOARD.REQUESTS.ACTIONS.ACCEPT')}
                   </button>
                   <button 
                     onClick={() => handleRequestResponse(request._id, "rejected")}
                     className="bg-red-500 text-white px-4 py-2 rounded"
                   >
-                    {t('dashboard.requests.actions.reject')}
+                    {t('DASHBOARD.REQUESTS.ACTIONS.REJECT')}
                   </button>
                 </div>
               )}
@@ -260,7 +260,7 @@ const Dashboard = () => {
               )}
 
               {request.status === "rejected" && (
-                <p className="mt-4 text-red-500">Request rejected</p>
+                <p className="mt-4 text-red-500">{t('DASHBOARD.REQUESTS.REQUEST_REJECTED')}</p>
               )}
             </motion.div>
           ))}
@@ -269,7 +269,7 @@ const Dashboard = () => {
 
       {/* Sent Requests */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('dashboard.requests.sent')}</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('DASHBOARD.REQUESTS.SENT')}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {rentalRequests.sent?.map((request) => (
             <motion.div
@@ -277,18 +277,18 @@ const Dashboard = () => {
               className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500"
             >
               <h3 className="text-xl font-bold text-gray-800">{request.equipmentId?.name}</h3>
-              <p className="text-gray-600">Owner: {request.ownerId?.name}</p>
-              <p className="text-gray-600">{t('dashboard.requests.price')}: ₹{request.proposedPrice}/day</p>
-              <p className="text-gray-600">Status: {request.status}</p>
+              <p className="text-gray-600">{t('DASHBOARD.REQUESTS.OWNER')}: {request.ownerId?.name}</p>
+              <p className="text-gray-600">{t('DASHBOARD.REQUESTS.PRICE')}: ₹{request.proposedPrice}{t('DASHBOARD.REQUESTS.PRICE_PER_DAY')}</p>
+              <p className="text-gray-600">{t('DASHBOARD.REQUESTS.STATUS')}: {request.status}</p>
               {request.message && (
-                <p className="text-gray-600 mt-2">{t('dashboard.requests.message')}: {request.message}</p>
+                <p className="text-gray-600 mt-2">{t('DASHBOARD.REQUESTS.MESSAGE')}: {request.message}</p>
               )}
               {request.status === "approved" && (
                 <button
                   onClick={() => navigate(`/farmer-chat/${request._id}`)}
                   className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
                 >
-                  {t('dashboard.requests.actions.chat')}
+                  {t('DASHBOARD.REQUESTS.ACTIONS.CHAT')}
                 </button>
               )}
               {request.status === "completed" && !request.rating && (
@@ -300,7 +300,7 @@ const Dashboard = () => {
                   }}
                   className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600"
                 >
-                  Rate Equipment
+                  {t('DASHBOARD.REQUESTS.ACTIONS.RATE')}
                 </button>
               )}
               {request.rating && (
@@ -396,7 +396,7 @@ const Dashboard = () => {
 
         {/* Loading or Error State */}
         {loading ? (
-          <p className="text-center text-gray-500 mt-6">{t('Loading')}...</p>
+          <p className="text-center text-gray-500 mt-6">{t('DASHBOARD.LOADING')}...</p>
         ) : error ? (
           <p className="text-center text-red-500 mt-6">{error}</p>
         ) : (
