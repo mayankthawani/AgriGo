@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-const resources = {
+export const resources = {
   en: {
     translation: {
       "BOOK_FARM_EQUIPMENT": "Book Farm Equipment",
@@ -21,7 +21,9 @@ const resources = {
       "TOTAL_DAYS": "Total Days",
       "TOTAL_PRICE": "Total Price",
       "CANCEL": "Cancel",
-      "CONFIRM_BOOKING": "Confirm Booking"
+      "CONFIRM_BOOKING": "Confirm Booking",
+      'Welcome': 'Welcome',
+      'dashboard.requests.actions.chat': 'Open Chat'
     }
   },
   hi: {
@@ -43,7 +45,9 @@ const resources = {
       "TOTAL_DAYS": "कुल दिन",
       "TOTAL_PRICE": "कुल मूल्य",
       "CANCEL": "रद्द करें",
-      "CONFIRM_BOOKING": "बुकिंग की पुष्टि करें"
+      "CONFIRM_BOOKING": "बुकिंग की पुष्टि करें",
+      'Welcome': 'स्वागत है',
+      'dashboard.requests.actions.chat': 'चैट खोलें'
     }
   },
   mr: {
@@ -65,7 +69,9 @@ const resources = {
       "TOTAL_DAYS": "एकूण दिवस",
       "TOTAL_PRICE": "एकूण किंमत",
       "CANCEL": "रद्द करा",
-      "CONFIRM_BOOKING": "बुकिंग निश्चित करा"
+      "CONFIRM_BOOKING": "बुकिंग निश्चित करा",
+      'Welcome': 'स्वागत आहे',
+      'dashboard.requests.actions.chat': 'चॅट उघडा'
     }
   }
 };

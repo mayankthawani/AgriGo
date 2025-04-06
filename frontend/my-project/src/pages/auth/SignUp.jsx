@@ -11,18 +11,21 @@ const Signup = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(""); // Add error state
   const navigate = useNavigate(); // Hook for navigation
 
   const handleChange = (e) => {
+    setError(""); // Clear error on input change
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(""); // Clear previous errors
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/register',
+        'http://localhost:5000/api/auth/register',  // This should now match backend route
         formData,
         {
           headers: {
@@ -37,8 +40,11 @@ const Signup = () => {
         navigate('/dashboard');
       }
     } catch (error) {
-      console.error('Signup error:', error.response?.data || error.message);
-      setError(error.response?.data?.message || 'Registration failed');
+      console.error('Signup error:', error);
+      setError(
+        error.response?.data?.message || 
+        'Registration failed. Please try again.'
+      );
     } finally {
       setLoading(false);
     }
@@ -66,6 +72,11 @@ const Signup = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6 mt-8">
+            {error && (
+              <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span className="block sm:inline">{error}</span>
+              </div>
+            )}
             <div>
               <label className="block text-sm font-medium text-gray-700">Full Name</label>
               <div className="mt-1 relative">
